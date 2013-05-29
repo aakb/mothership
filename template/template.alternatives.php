@@ -24,10 +24,15 @@ function mothership_item_list($items = array(), $title = NULL, $type = 'ul', $at
     $item_type = $type;
   }
 
+  $output = '';
+
+  if (is_null($attributes)) {
+    $attributes = array();
+  }
   $attributes['class'] .= " item-list";
   //test if we have an title then add the div.item-list around the list
   if (isset($title)) {
-    $output = '<div class="item-list">';
+    $output .= '<div class="item-list">';
     if ($item_type == "span") {
       $output .= '<span class="title">'. $title .'</span>';
     }
