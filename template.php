@@ -36,7 +36,7 @@ function mothership_preprocess(&$vars, $hook) {
     // ** ------------------------------------------------------------------------ **
 
     //lets add some more template files 
-    if($vars['node']->type){
+    if(isset($vars['node']) && $vars['node']->type){
       $vars['template_files'][] = 'page-' . $vars['node']->type;      
     }
 
@@ -130,7 +130,7 @@ function mothership_preprocess(&$vars, $hook) {
      
 
     //is the admin module active
-    if($vars['admin'] AND theme_get_setting('mothership_cleanup_body_admin')){
+    if(isset($vars['admin']) && $vars['admin'] && theme_get_setting('mothership_cleanup_body_admin')){
       $body_classes[] = "adminmenu";
     }
 
@@ -233,7 +233,7 @@ function mothership_preprocess(&$vars, $hook) {
         $classes[] = 'node-' . $vars['type'];
       }
     }
-    else{
+    else {
       if (theme_get_setting('mothership_cleanup_node_node')) {
         $classes[] = 'node';
       }
@@ -242,7 +242,7 @@ function mothership_preprocess(&$vars, $hook) {
       }
     }
     //skinr
-    if( module_exists(skinr) ) {
+    if(module_exists('skinr')) {
         $classes[] = $vars['skinr'];
     }
     
@@ -355,7 +355,7 @@ function mothership_preprocess(&$vars, $hook) {
     }
 
     //skinr
-    if( module_exists(skinr) ) {
+    if(module_exists('skinr')) {
         $classes[] = $vars['skinr'];
     }
 
@@ -461,7 +461,7 @@ function mothership_preprocess(&$vars, $hook) {
 
     $classes = array();  
     //skinr
-    if( module_exists(skinr) ) {
+    if(module_exists('skinr')) {
         $classes[] = $vars['skinr'];
     }
 
